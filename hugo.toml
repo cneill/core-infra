@@ -1,0 +1,4 @@
+baseURL = "https://cneill/github.io/core-infra"
+languageCode = "en-us"
+title = "Core Infra"
+theme = ["hugo-blog-awesome"]
