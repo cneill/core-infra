@@ -22,7 +22,7 @@ jobs:
       - name: Download Hugo release
         if: success()
         run: |
-          curl -L ${{ steps.get-release.outputs.download_url }} -o hugo.tar.gz
+          curl -L ${{ steps.get-hugo-release.outputs.download_url }} -o hugo.tar.gz
           tar -xvf hugo.tar.gz
           sudo mv hugo /usr/local/bin/
           hugo version
