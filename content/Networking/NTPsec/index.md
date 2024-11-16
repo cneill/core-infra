@@ -1,14 +1,12 @@
 
 ---
-description: NTPsec is awesome
-featured_image: ntpsec_logo.png
-menus: "main"
-sort_order: desc
-title: NTPsec
-categories: ["Networking"]
-weight: 3
+title: Core Infra
+description: Core Infra wizards unite!
+featured_image: wizard1.png
+private: true
+featured: true
 resources:
-    - src: ntpsec_logo.png
-      title: NTPSec logo
+    - src: wizard1.png
+      title: Core Infra wizard
 
 ---
