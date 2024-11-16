@@ -47,13 +47,15 @@ jobs:
           curl -L ${{ steps.get-hugo-release.outputs.hugo_download_url }} -o ~/.hugo/hugo.tar.gz
           cd ~/.hugo
           tar -xvf hugo.tar.gz
-          hugo version
 
       - name: Set Hugo path
         id: set-path
         run: |
           echo "Adding Hugo to PATH"
           echo "${HOME}/.hugo" >> $GITHUB_PATH
+
+      - name: Check Hugo version
+        run: hugo version
 
       - name: Install Dart Sass
         id: install-dart-sass
