@@ -1,12 +1,12 @@
 
 ---
-featured_image: wizard1.png
+featured_image: monk.png
 title: Core Infra
 featured: true
 private: true 
-description: Core Infra wizards, unite!
+description: Core Infra monks, unite!
 resources:
-    - src: wizard1.png
-      title: Core Infra wizard
+    - src: monk.jpeg
+      title: Core Infra monk
 
 ---
