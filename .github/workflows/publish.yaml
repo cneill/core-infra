@@ -10,33 +10,16 @@ jobs:
       download_url: ${{ steps.get-hugo-release.outputs.download_url }}
       version: ${{ steps.get-hugo-release.outputs.version }}
     steps:
+      - name: Checkout this repo
+        uses: actions/checkout@v4
+
       - name: Grab latest Hugo release
         id: get-hugo-release
         uses: actions/github-script@v7
         with:
           script: |
-            const release = await github.rest.repos.getLatestRelease({
-              "gohugoio",
-              "hugo"
-            });
-
-            const version = response.data.tag_name;
-
-            const asset = response.data.assets.find(asset =>
-              asset.name.includes("extended") &&
-              asset.name.includes("Linux-64bit") &&
-              asset.name.endsWith(".tar.gz")
-            );
-
-            if (!asset) {
-              throw new Error("No Hugo release binary found");
-            }
-
-            core.setOutput("download_url", asset.browser_download_url);
-            core.setOutput("version", version);
-
-            console.log(`Found Hugo ${version}`);
-            console.log(`Download URL: ${asset.browser_download_url}`);
+            const script = require('./index.js');
+            script({github, core});
 
       - name: Download Hugo release
         if: success()
