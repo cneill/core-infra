@@ -1,6 +1,6 @@
 baseURL = "https://cneill/github.io/core-infra"
-languageCode = "en-us"
-defaultContentLanguage = "en-us"
+languageCode = "en"
+defaultContentLanguage = "en"
 title = "Core Infra"
 theme = ["hugo-theme-gallery"]
 enableEmoji = true
@@ -17,3 +17,6 @@ enableEmoji = true
         home = ["HTML", "RSS"]
         page = ["HTML"]
         section = ["HTML"]
+    [imaging]
+        quality = 100
+        resampleFilter = "CatmullRom"
