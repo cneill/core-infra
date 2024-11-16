@@ -1,8 +1,9 @@
 baseURL = "https://cneill/github.io/core-infra"
 languageCode = "en-us"
+defaultContentLanguage = "en-us"
 title = "Core Infra"
-theme = ["hugo-blog-awesome"]
+theme = ["hugo-theme-gallery"]
+enableEmoji = true
 
 [[params.socialIcons]]
-name = "github"
-url = "https://github.com/cneill/core-infra"
+github = "https://github.com/cneill/core-infra"
