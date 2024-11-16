@@ -3,7 +3,10 @@ module.exports = ({ github, core }) => {
 };
 
 async function main(github, core) {
-  const release = await github.rest.repos.getLatestRelease("gohugoio", "hugo");
+  const release = await github.rest.repos.getLatestRelease({
+    owner: "gohugoio",
+    repo: "hugo",
+  });
 
   const version = response.data.tag_name;
 
