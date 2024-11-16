@@ -47,7 +47,6 @@ jobs:
           curl -L ${{ steps.get-hugo-release.outputs.hugo_download_url }} -o ~/.hugo/hugo.tar.gz
           cd ~/.hugo
           tar -xvf hugo.tar.gz
-          sudo mv hugo /usr/local/bin/
           hugo version
 
       - name: Set Hugo path
