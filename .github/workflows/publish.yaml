@@ -57,9 +57,9 @@ jobs:
       - name: Check Hugo version
         run: hugo version
 
-      - name: Install Dart Sass
-        id: install-dart-sass
-        run: sudo snap install dart-sass
+      # - name: Install Dart Sass
+      #   id: install-dart-sass
+      #   run: sudo snap install dart-sass
 
       - name: Setup Pages
         id: pages
