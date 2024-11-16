@@ -8,8 +8,6 @@ categories: ["SSL"]
 weight: 3
 resources:
     - src: openssl_logo_library.png
-      title: OpenSSL PNG
+      title: OpenSSL logo
 
 ---
-
-Where does this go...
