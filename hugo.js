@@ -8,9 +8,9 @@ async function main(github, core) {
     repo: "hugo",
   });
 
-  const version = response.data.tag_name;
+  const version = release.data.tag_name;
 
-  const asset = response.data.assets.find(
+  const asset = release.data.assets.find(
     (asset) =>
       asset.name.includes("extended") &&
       asset.name.includes("Linux-64bit") &&
