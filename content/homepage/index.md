@@ -1,6 +1,6 @@
 
 ---
-featured_image: monk.png
+featured_image: monk.jpeg
 title: Core Infra
 featured: true
 private: true 
