@@ -5,5 +5,15 @@ title = "Core Infra"
 theme = ["hugo-theme-gallery"]
 enableEmoji = true
 
-[[params.socialIcons]]
-github = "https://github.com/cneill/core-infra"
+[params]
+    defaultTheme = "dark"
+    description = "Core infrastructure is cool and you should support it!"
+    title = "Core Infra"
+    [params.author]
+        name = "Charles Neill"
+    [params.socialIcons]
+        github = "https://github.com/cneill/core-infra"
+    [outputs]
+        home = ["HTML", "RSS"]
+        page = ["HTML"]
+        section = ["HTML"]
