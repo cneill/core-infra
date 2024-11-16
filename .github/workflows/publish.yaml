@@ -14,8 +14,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     outputs:
-      download_url: ${{ steps.get-hugo-release.outputs.download_url }}
-      version: ${{ steps.get-hugo-release.outputs.version }}
+      hugo_download_url: ${{ steps.get-hugo-release.outputs.hugo_download_url }}
+      hugo_version: ${{ steps.get-hugo-release.outputs.hugo_version }}
     steps:
       - name: Checkout this repo
         uses: actions/checkout@v4
@@ -28,18 +28,36 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            const script = require('./hugo-release.js');
+            const script = require('./hugo-get.js');
             script({github, core});
 
+      - name: Cache Hugo
+        id: cache-hugo
+        uses: actions/cache@v4
+        with:
+          path: ~/.hugo/hugo
+          key: hugo-${{ steps.get-hugo-release.outputs.hugo_version }}
+          restore-keys: |
+            hugo-
+
       - name: Download Hugo release
-        if: success()
+        if: steps.cache-hugo.outputs.cache-hit != 'true'
         run: |
-          curl -L ${{ steps.get-hugo-release.outputs.download_url }} -o hugo.tar.gz
+          mkdir -p ~/.hugo
+          curl -L ${{ steps.get-hugo-release.outputs.hugo_download_url }} -o ~/.hugo/hugo.tar.gz
+          cd ~/.hugo
           tar -xvf hugo.tar.gz
           sudo mv hugo /usr/local/bin/
           hugo version
 
+      - name: Set Hugo path
+        id: set-path
+        run: |
+          echo "Adding Hugo to PATH"
+          echo "${HOME}/.hugo" >> $GITHUB_PATH
+
       - name: Install Dart Sass
+        id: install-dart-sass
         run: sudo snap install dart-sass
 
       - name: Setup Pages

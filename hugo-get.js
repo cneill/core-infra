@@ -21,8 +21,8 @@ async function main(github, core) {
     throw new Error("No Hugo release binary found");
   }
 
-  core.setOutput("download_url", asset.browser_download_url);
-  core.setOutput("version", version);
+  core.setOutput("hugo_download_url", asset.browser_download_url);
+  core.setOutput("hugo_version", version);
 
   console.log(`Found Hugo ${version}`);
   console.log(`Download URL: ${asset.browser_download_url}`);
